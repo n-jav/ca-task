@@ -1,0 +1,42 @@
+/**
+ * This file describes the data structure of SensorLogMessage which will be
+ * used by the ingest application to send incoming log messages to storage service
+ * for persistence.
+ *
+ * Proto file will be used by the Google Protocol Buffer compiler to generate the
+ * classes used for encoding and parsing the binary data.
+ *
+ * This file uses the style guide recommended by Google for proto files.
+ * Guide can be found at https://developers.google.com/protocol-buffers/docs/style
+ */
+
+syntax = "proto2";
+
+package sensor.log.message;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.javed.logs.lambda";
+option java_outer_classname = "SensorLogProtos";
+
+/**
+ * Although the fields described in the message below are marked as optional,
+ * they are considered to be mandatory fields in the application.
+ *
+ * They are not marked as required due to the recommendation by Google
+ * on avoiding required fields as they cause more harm than good when
+ * there is a change required in future to the data structure.
+ */
+message SensorLogMessage{
+
+    enum EventType{
+        ERROR = 0;
+        INFORMATION = 1;
+        WARNING = 2;
+    }
+
+    optional google.protobuf.Timestamp time_stamp = 1;
+    optional int32 sensor_id = 2;
+    optional EventType event_type = 3;
+    optional string event_message = 4;
+}
