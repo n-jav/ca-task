@@ -1,0 +1,15 @@
+{
+  "name": "log-storage-service",
+  "version": "1.0.0",
+  "description": "This app provides the log storage service, it listens for messages over websocket in GBP format",
+  "main": "src/log-storage-service.js",
+  "author": "Nadir Javed",
+  "license": "ISC",
+  "private": true,
+  "dependencies":
+  {
+    "websocket": "^1.0.28",
+    "google-protobuf": "^3.8.0-rc.1",
+    "optimized-quicksort": "^1.1.1"
+  }
+}
