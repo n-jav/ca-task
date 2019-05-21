@@ -84,7 +84,7 @@ function sendEvent(deviceObj) {
 }
 
 /**
- * This method sends the initial event from the device passed as parameter and the sets
+ * This method sends the initial event from the device passed as parameter and then sets
  * a regular interval at which the device will transmit an event. It uses the built-in JavaScript
  * setInterval functionality for scheduling.
  *

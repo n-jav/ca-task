@@ -70,18 +70,65 @@ node log-storage-service.js
 
 ### Log Ingest Service
 
-This is a Maven based Java application which should be started once 
+This is a Maven based Java application which provides the service of ingesting logs from the devices over a REST API and forwards the received messaged to storage service.
+
+It should be started once the Log Storage Service is running, as it attempts to connect with the service on start up.
 
 #### Prerequisites
 
-The application depends on Java SDK 12.
+The application depends on Java version 8 or higher. If you alread have the Java SDK or JRE installed higher than version 8, you can skip the step below.
 
-- You can download the SDK at: https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html
+- For the latest SDK 12, you can download it at: https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html
 - Installation instructions can also be found at the same source.
+- Alternatively you can install the version 8 SDK from https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html or if you are on a non dev machince, just the JRE from https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 
+#### Configurations
+
+There are no special configurations required by the application other than the port on which it starts the webserver to listening for incoming HTTP requests.
+
+By default the application uses port: 4567.
+
+If you want to change the default address or port of storage service, you can do so by modifying the following line in class 'LogsRestService'.
+Any change would require you to rebuild the application.
+
+```Java
+    // Edit this string to change the address of Storage Service
+    private static String logStorageServiceAddress = "ws://localhost:7890";
+```
+
+#### Starting the application
+
+For your convenience, a pre-packaged single JAR package is provided for you along with the source code.
+
+If you want to use the pre-packaged JAR to run the application, simple navigate to folder 'log-ingest-service/' and give the following command
+
+```bash
+java -jar logs-ingest-1.0.jar
+```
+If you would like to compile the source code yourself, you would need to have the Apache Maven installed on your machine.
+You can download it from : https://maven.apache.org/download.cgi
+Install guide is available at : https://maven.apache.org/install.html
+
+Once you have the Maven installed, give the following command at folder 'log-ingest-service/' containing the pom.xml file
+
+```bash
+mvn clean package shade:shade
+```
+After the build process is complete, navigate to folder 'log-ingest-service/target' and run the application by giving the following command
+```bash
+java -jar logs-ingest-1.0.jar
+```
+#### Application Dependencies
+
+* [Spark](http://sparkjava.com/) - A micro framework for creating web applications in Kotlin and Java 8 with minimal effort
+* [Gson](https://github.com/google/gson) - A Java serialization/deserialization library to convert Java Objects into JSON and back
+* [Protobuf-Java](https://github.com/protocolbuffers/protobuf/tree/master/java) - Protocol Buffers - Google's data interchange format
+* [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) - A barebones WebSocket client and server implementation written in 100% Java.
 ### Multi Device Simulator
 
 This is a node.js based application which emulates a number of resource-constrained cellular enabled devices which transmit event messages to ingestion service at regular intervals.
+
+This application should be started once the log ingest and log storage services are running.
 
 #### Prerequisites
 
