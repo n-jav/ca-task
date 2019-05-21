@@ -19,7 +19,7 @@ The applications in the solution should be started in the order provided below:
 ```
 You will find details on how to start the applications in the "Starting the application" section for each application.
 
-### Log Storage Service
+## Log Storage Service
 
 This is a node.js based application which provides the service for storing logs to the local filesystem. It should be started first as the Log Ingest Service will attempt to connect to this service on start.
 
@@ -68,7 +68,7 @@ node log-storage-service.js
 * [optimized-quicksort](https://www.npmjs.com/package/optimized-quicksort) - Optimized version of quicksort.
 
 
-### Log Ingest Service
+## Log Ingest Service
 
 This is a Maven based Java application which provides the service of ingesting logs from the devices over a REST API and forwards the received messaged to storage service.
 
@@ -124,7 +124,8 @@ java -jar logs-ingest-1.0.jar
 * [Gson](https://github.com/google/gson) - A Java serialization/deserialization library to convert Java Objects into JSON and back
 * [Protobuf-Java](https://github.com/protocolbuffers/protobuf/tree/master/java) - Protocol Buffers - Google's data interchange format
 * [Java-WebSocket](https://github.com/TooTallNate/Java-WebSocket) - A barebones WebSocket client and server implementation written in 100% Java.
-### Multi Device Simulator
+
+## Multi Device Simulator
 
 This is a node.js based application which emulates a number of resource-constrained cellular enabled devices which transmit event messages to ingestion service at regular intervals.
 
