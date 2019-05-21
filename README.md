@@ -1,6 +1,6 @@
 # CA - Task
 
-There were two solutions implemented for the problem described in the task. Solution 1 follows the requirements set forth in the task and is aimed at running locally or self-provisioned servers. Solution 2 provides the cloud-based implementation for the task based on serverless technologies and managed services provided by AWS. You can find further detatils about the solutions in the descriptions provided as a PDF document.
+There were two solutions implemented for the problem described in the task. Solution 1 follows the requirements set forth in the task and is aimed at running locally or on self-provisioned servers. Solution 2 provides the cloud-based implementation for the task based on serverless technologies and managed services provided by AWS. You can find further detatils about the solutions in the descriptions provided as a PDF document.
 
 ## Solution 1
 
@@ -11,16 +11,15 @@ Solution is composed of 3 applications
 
 ### Log Storage Service
 
-This is node.js based application which provides the service for storing logs to the local filesystem. It should be started first as the Log Ingest Service will attempt to connect to this service on start.
+This is a node.js based application which provides the service for storing logs to the local filesystem. It should be started first as the Log Ingest Service will attempt to connect to this service on start.
 
 #### Prerequisites
 
 You need to have the Node.js environment setup.
 
-```
 - You can install the Node.js for your operating system by downloading it at: https://nodejs.org/en/download/
 - Installation steps can also be found on the same page.
-```
+
 #### Configurations
 
 This application uses a configuration file for reading the required parameters, you can change the values before starting the application. The file is called 'config.json' and it is located under the 'logs-storage-service/src' directory. The supported parameters are provided below:
