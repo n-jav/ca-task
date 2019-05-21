@@ -9,6 +9,16 @@ Solution is composed of 3 applications
 - Log Ingest Service (Java)
 - Log Storage Service (Node.js)
 
+#### Starting the solution
+
+The applications in the solution should be started in the order provided below:
+```
+1. Log Storage Service
+2. Log Ingest Service
+3. Multi-device Simulator
+```
+You will find details on how to start the applications in the "Starting the application" section for each application.
+
 ### Log Storage Service
 
 This is a node.js based application which provides the service for storing logs to the local filesystem. It should be started first as the Log Ingest Service will attempt to connect to this service on start.
