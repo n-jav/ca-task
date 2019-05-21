@@ -1,0 +1,5 @@
+{
+  "0": "Lost connectivity to temperature sensor!",
+  "1": "Cannot read file: configuration.xml!",
+  "2": "Missing multi-sensor module!"
+}
