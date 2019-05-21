@@ -1,0 +1,4 @@
+{
+  "ELASTICSEARCH_INDEX": "logs",
+  "ELASTICSEARCH_DOMAIN": "https://search-logs-storage-6qkdqg7vjbzzw3vkvswcnn6gam.eu-central-1.es.amazonaws.com"
+}

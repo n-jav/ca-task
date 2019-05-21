@@ -1,0 +1,12 @@
+{
+  "name": "log-storage-service-lambda",
+  "version": "1.0.0",
+  "description": "This function provides the storage service, receives messages via SQS and stores it to Elasticsearch",
+  "author": "Nadir Javed",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "google-protobuf": "^3.8.0-rc.1",
+    "elasticsearch": "^16.0.0"
+  }
+}
