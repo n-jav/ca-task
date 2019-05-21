@@ -1,0 +1,12 @@
+{
+  "name": "multi-device-simulator",
+  "version": "1.0.0",
+  "description": "This app is a basic device simulator, emulating configured # of sensors generating randomized events",
+  "main": "src/multi-device-simulator.js",
+  "author": "Nadir Javed",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

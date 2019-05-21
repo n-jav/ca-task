@@ -1,0 +1,8 @@
+{
+  "MODE": "LOCAL",
+  "INGEST_SERVICE_HOSTNAME": "localhost",
+  "INGEST_SERVICE_PORT": 4567,
+  "AWS_INGEST_SERVICE": "https://m6qo6re704.execute-api.eu-central-1.amazonaws.com/v1/logs",
+  "EVENT_TRANSMISSION_INTERVAL_SECONDS": 60,
+  "NO_OF_SIMULATED_DEVICES": 20
+}
