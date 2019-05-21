@@ -75,7 +75,7 @@ This is a node.js based application which emulates a number of resource-constrai
 
 #### Prerequisites
 
-The application depends on Node.js and would the need the node environment to be setup in order to execute.
+The application depends on Node.js and would need the node environment to be setup in order to execute.
 If you already installed Node in the earlier steps then no extra step is required. If not, please refer to the prerequisites section of Log Storage Service to setup the environment.
 
 #### Configurations

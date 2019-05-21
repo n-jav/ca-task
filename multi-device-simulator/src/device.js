@@ -7,7 +7,7 @@
 
 "use strict";
 
-// Promise based HTTP client, used instead of built-in node module due to avoid verbose nature of http module
+// Promise based HTTP client, used instead of built-in node module to avoid verbose nature of http module
 // and improve code readability.
 const axios = require('axios');
 

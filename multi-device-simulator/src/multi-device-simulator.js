@@ -45,11 +45,6 @@ eventMsgs.push(errorMsgs);
 eventMsgs.push(informationMsgs);
 eventMsgs.push(warningMsgs);
 
-/**
- * We use this array to store the interval objects returned when scheduling devices to
- * generate random events at every configured interval.
- */
-var scheduleObjects = [];
 
 /**
  * This method is used for generating a random event message based on JavaScript random method.
@@ -98,7 +93,7 @@ function sendEvent(deviceObj) {
 function scheduleDeviceEvents(deviceObj){
     console.log("Scheduling Device:"+deviceObj.deviceId);
     sendEvent(deviceObj);
-    scheduleObjects.push(setInterval(sendEvent,config.EVENT_TRANSMISSION_INTERVAL_SECONDS*1000,deviceObj));
+    setInterval(sendEvent,config.EVENT_TRANSMISSION_INTERVAL_SECONDS*1000,deviceObj);
 }
 
 /**
