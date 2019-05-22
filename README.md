@@ -188,6 +188,41 @@ The same configuration parameters apply as described earlier in the document, on
 
 ### Deploying the solution to your own account
 
+If you would like to deploy Solution 2 to your own AWS account, please follow the steps provided below:
+
+
+* Step 1 - Create a new lambda function in your account named 'handlePostLogs'
+	* Choose the option 'Author from scratch'
+    * Choose the runtime as Java
+    * Create a IAM role for your Lambda and give it permissions to write to SQS service
+        * You can limit the queues by adding the queue ARN to policy once you have created the queue
+    * Once the function is created, use the upload button under function package to upload the provided JAR file, located at 'Solution-2/log-ingest-lambda/log-ingest-lambda-1.0.0.jar'.
+    * Under the Environments Variables, create a new variable called 'QUEUE_NAME' and set value to 'logs-storage'.
+* Step 2 - Create a new lambda function in your account named 'logStorageService'
+	* Choose the option 'Author from scratch'
+    * Choose the runtime as Node.Js 10
+    * Create a IAM role for your Lambda and give it basic execution permissions.
+    * Once the function is created, use the upload button under function package to upload the provided ZIP file, located at 'Solution-2/log-storage-lambda/log-storage-lambda.zip'
+* Step 3 - Create a new API in API Gateway service and give it a name of your liking.
+	* Under the newly created API, add a resource called 'logs' and enable API Gateway CORS option
+	* Create a POST method on the resource and choose Lambda integration as the setting and point it to the function you created earlier called 'handlePostLogs'.
+	* Deploy the API from the Actions button and choose a name for your deployment stage.
+	* After succesful deployment, API Gateway will provide you with an Https link to access your API.
+	* Set this address in the Multi-Device Simulator apps configuration.
+* Step 4 - Create a new SQS queue called 'logs-storage'
+	* Choose the option of 'Standard queue' and press quick create, default values should suffice.
+	* If you want to set up a Dead Letter Queue, then create another queue called 'logs-storage-dlq' and add it as the Dead letter queue under the redrive policy settings of the first queue.
+* Step 5 - Create a new Elasticsearch domain under the AWS Elasticsearch service
+	* Choose Deployment type as 'Development and Testing'.
+	* Elasticsearch Version as 6.5
+	* Give a name of your liking to the domain
+	* Choose the smallest available instance 't2.small' should suffice as your data instance
+	* Leave all other settings as default
+	* Under setup access, leave access open to public. This is not recommended but is the easiest choice, alternatively you can add it to your VPC but you will need to add your lambda function 'logStorageService' to the VPC as well and setup an Internet Gateway and correct security groups in the VPC.
+	* Once your domain is created (may take up to 15 mins), copy the provided domain address and add it to the configuration file under the lambda function 'logStorageService'.
+
+
+
 
 
  
